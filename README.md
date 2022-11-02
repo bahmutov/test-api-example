@@ -2,6 +2,8 @@
 
 > Practice exercises for testing API calls using Cypress
 
+🎓 Study the course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2022
