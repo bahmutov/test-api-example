@@ -21,6 +21,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@bahmutov/cy-api": "^2.2.1",
     "cy-spok": "^1.5.2",
     "cypress": "10.11.0",
     "find-cypress-specs": "1.19.0",
