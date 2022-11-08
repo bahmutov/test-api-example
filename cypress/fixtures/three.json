@@ -1,0 +1,17 @@
+{
+  "todos": [
+    {
+      "id": "101",
+      "title": "write code",
+      "completed": true
+    },
+    {
+      "id": "102",
+      "title": "write tests"
+    },
+    {
+      "id": "103",
+      "title": "run tests on CI"
+    }
+  ]
+}
