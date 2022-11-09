@@ -23,6 +23,8 @@
   "devDependencies": {
     "cy-spok": "^1.5.2",
     "cypress": "11.0.0",
+    "cypress-each": "^1.11.0",
+    "cypress-plugin-api": "^2.3.3",
     "find-cypress-specs": "1.19.0",
     "prettier": "2.7.1",
     "start-server-and-test": "1.14.0",
