@@ -12,14 +12,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Update version badges 🏷
+        # https://github.com/bahmutov/dependency-version-badge
         run: npx -p dependency-version-badge update-badge cypress
 
       - name: Commit any changed files 💾
+        # https://github.com/stefanzweifel/git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated badges
-          branch: master
+          branch: main
           file_pattern: README.md
