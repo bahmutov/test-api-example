@@ -1,3 +1,5 @@
+import 'cypress-aliases/commands/should'
+
 it('shows the loaded todos', () => {
   // spy on the initial data load
   // Important: to avoid the server sending the 304 (cached)
@@ -14,12 +16,7 @@ it('shows the loaded todos', () => {
   // grab its response body's length
   // and then confirm the page shows the same number
   // of items "li.todo"
-  // https://on.cypress.io/wait
-  // https://on.cypress.io/its
-  // https://on.cypress.io/then
-  cy.wait('@load')
-    .its('response.body.length')
-    .then((n) => {
-      cy.get('li.todo').should('have.length', n)
-    })
+  cy.wait('@load').its('response.body.length').as('n')
+  cy.get('li.todo').should('have.length', '@n')
+  cy.contains('3 items left')
 })
