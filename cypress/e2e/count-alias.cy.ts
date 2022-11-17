@@ -1,3 +1,6 @@
+// https://github.com/bahmutov/cypress-aliases
+import 'cypress-aliases/commands/contains'
+
 it('shows the number of todos', () => {
   // spy on the initial data load
   // Important: to avoid the server sending the 304 (cached)
@@ -16,13 +19,13 @@ it('shows the number of todos', () => {
   cy.wait('@load')
     // grab its response body's length
     // https://on.cypress.io/its
+    // and saved under the alias "n"
+    // https://on.cypress.io/as
     .its('response.body.length')
-    //
-    // and then confirm the page shows the correct
-    // number of todos in the "<N> items left" element
-    // https://on.cypress.io/then
-    // https://on.cypress.io/contains
-    .then((n) => {
-      cy.contains('.todo-count', `${n} items left`)
-    })
+    .as('n')
+  // confirm the page shows the correct
+  // number of todos in the "<N> items left" element
+  // using the resolved alias value
+  // https://on.cypress.io/contains
+  cy.contains('.todo-count', '@n items left')
 })
