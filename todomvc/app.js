@@ -149,6 +149,16 @@ function appStart() {
           commit('REMOVE_TODO', todo)
         })
       },
+      async copyTodos({ state }) {
+        const markdown =
+          state.todos
+            .map((todo) => {
+              const mark = todo.completed ? 'x' : ' '
+              return `- [${mark}] ${todo.title}`
+            })
+            .join('\n') + '\n'
+        await navigator.clipboard.writeText(markdown)
+      },
       async removeCompleted({ commit, state }) {
         const remainingTodos = state.todos.filter((todo) => !todo.completed)
         const completedTodos = state.todos.filter((todo) => todo.completed)
@@ -281,6 +291,10 @@ function appStart() {
 
       removeCompleted() {
         this.$store.dispatch('removeCompleted')
+      },
+
+      copyTodos() {
+        this.$store.dispatch('copyTodos')
       },
     },
   })

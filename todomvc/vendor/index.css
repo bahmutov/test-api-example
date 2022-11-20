@@ -322,6 +322,7 @@ body {
 
 .clear-completed,
 html .clear-completed:active {
+  margin-right: 5px;
   float: right;
   position: relative;
   line-height: 19px;

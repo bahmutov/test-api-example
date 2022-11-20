@@ -103,6 +103,15 @@
             >
           </li>
         </ul>
+
+        <button
+          class="clear-completed"
+          @click="copyTodos"
+          title="Copy todos to clipboard"
+        >
+          📋
+        </button>
+
         <button
           class="clear-completed"
           @click="removeCompleted"
@@ -112,6 +121,7 @@
         </button>
       </footer>
     </section>
+
     <footer class="info">
       <p>
         Written by
