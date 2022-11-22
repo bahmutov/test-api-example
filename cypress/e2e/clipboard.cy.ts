@@ -7,7 +7,7 @@ it('copies the todos to clipboard', () => {
   cy.window()
     .its('navigator.clipboard')
     .then((clipboard) => {
-      cy.stub(clipboard, 'writeText').as('writeText')
+      cy.stub(clipboard, 'writeText').as('writeText').resolves()
     })
   cy.get('[title="Copy todos to clipboard"]').click()
   cy.get('@writeText').should(
