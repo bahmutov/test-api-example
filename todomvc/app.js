@@ -3,7 +3,9 @@
 /* eslint-disable-next-line */
 const uri = window.location.search.substring(1)
 const params = new URLSearchParams(uri)
-const appStartDelay = parseFloat(params.get('appStartDelay') || '0')
+const appStartDelay = parseFloat(
+  params.get('appStartDelay') || '0',
+)
 
 function appStart() {
   Vue.use(Vuex)
@@ -76,7 +78,10 @@ function appStart() {
       },
 
       loadTodos({ commit, state }) {
-        console.log('loadTodos start, delay is %d', state.delay)
+        console.log(
+          'loadTodos start, delay is %d',
+          state.delay,
+        )
         setTimeout(() => {
           commit('SET_LOADING', true)
 
@@ -145,7 +150,11 @@ function appStart() {
         track('todo.remove', todo.title)
 
         axios.delete(`/todos/${todo.id}`).then(() => {
-          console.log('removed todo', todo.id, 'from the server')
+          console.log(
+            'removed todo',
+            todo.id,
+            'from the server',
+          )
           commit('REMOVE_TODO', todo)
         })
       },
@@ -160,8 +169,12 @@ function appStart() {
         await navigator.clipboard.writeText(markdown)
       },
       async removeCompleted({ commit, state }) {
-        const remainingTodos = state.todos.filter((todo) => !todo.completed)
-        const completedTodos = state.todos.filter((todo) => todo.completed)
+        const remainingTodos = state.todos.filter(
+          (todo) => !todo.completed,
+        )
+        const completedTodos = state.todos.filter(
+          (todo) => todo.completed,
+        )
 
         for (const todo of completedTodos) {
           await axios.delete(`/todos/${todo.id}`)
@@ -179,7 +192,10 @@ function appStart() {
         commit('CLEAR_NEW_TODO')
       },
       // example promise-returning action
-      addTodoAfterDelay({ commit }, { milliseconds, title }) {
+      addTodoAfterDelay(
+        { commit },
+        { milliseconds, title },
+      ) {
         return new Promise((resolve) => {
           setTimeout(() => {
             const todo = {
@@ -223,14 +239,22 @@ function appStart() {
 
     created() {
       const delay = parseFloat(params.get('delay') || '0')
-      const renderDelay = parseFloat(params.get('renderDelay') || '0')
-      addTodoDelay = parseFloat(params.get('addTodoDelay') || '0')
+      const renderDelay = parseFloat(
+        params.get('renderDelay') || '0',
+      )
+      addTodoDelay = parseFloat(
+        params.get('addTodoDelay') || '0',
+      )
 
-      this.$store.dispatch('setRenderDelay', renderDelay).then(() => {
-        this.$store.dispatch('setDelay', delay).then(() => {
-          this.$store.dispatch('loadTodos')
+      this.$store
+        .dispatch('setRenderDelay', renderDelay)
+        .then(() => {
+          this.$store
+            .dispatch('setDelay', delay)
+            .then(() => {
+              this.$store.dispatch('loadTodos')
+            })
         })
-      })
 
       // how would you test the periodic loading of todos?
       setInterval(() => {
@@ -251,11 +275,14 @@ function appStart() {
         return this.$store.getters.todos
       },
       filteredTodos() {
-        return filters[this.visibility](this.$store.getters.todos)
+        return filters[this.visibility](
+          this.$store.getters.todos,
+        )
       },
       remaining() {
-        return this.$store.getters.todos.filter((todo) => !todo.completed)
-          .length
+        return this.$store.getters.todos.filter(
+          (todo) => !todo.completed,
+        ).length
       },
     },
 
@@ -293,7 +320,10 @@ function appStart() {
 
       // utility method for create a todo with title and completed state
       addEntireTodo(title, completed = false) {
-        this.$store.dispatch('addEntireTodo', { title, completed })
+        this.$store.dispatch('addEntireTodo', {
+          title,
+          completed,
+        })
       },
 
       removeCompleted() {
@@ -307,6 +337,13 @@ function appStart() {
       sortTodos() {
         this.$store.dispatch('sortTodos')
       },
+
+      slowlySortTodos() {
+        const delay = Math.random() * 1000 + 1000
+        setTimeout(() => {
+          this.$store.dispatch('sortTodos')
+        }, delay)
+      },
     },
   })
 
@@ -316,7 +353,9 @@ function appStart() {
 
     var router = new Router()
 
-    ;['all', 'active', 'completed'].forEach(function (visibility) {
+    ;['all', 'active', 'completed'].forEach(function (
+      visibility,
+    ) {
       router.on(visibility, function () {
         app.visibility = visibility
       })

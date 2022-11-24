@@ -17,7 +17,7 @@ it('sorts items', () => {
   cy.request('POST', '/reset', { todos })
   cy.visit('/')
   cy.get('li.todo').should('have.length', todos.length)
-  cy.get('.sort-todos').click()
+  cy.get('[data-cy=sort]').click()
   cy.get('li.todo label')
     .then(getTexts)
     .should('deep.equal', ['apple', 'ball'])

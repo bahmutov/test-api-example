@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Gleb Bahmutov" />
-    <meta name="description" content="Cypress basics workshop example app" />
+    <meta
+      name="description"
+      content="Cypress basics workshop example app"
+    />
     <title>Vue.js • TodoMVC</title>
     <link rel="stylesheet" href="vendor/index.css" />
     <!-- usually we can just let the browser load additional styles if the user's OS
@@ -13,7 +16,10 @@
     <!-- but to be able to control the dark theme load programmatically and from E2E tests
     we need to use JavaScript and check preference using "window.matchMedia" call -->
     <script>
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (
+        window.matchMedia('(prefers-color-scheme: dark)')
+          .matches
+      ) {
         const link = document.createElement('link')
         link.type = 'text/css'
         link.rel = 'stylesheet'
@@ -61,20 +67,32 @@
             :class="{ completed: todo.completed }"
           >
             <div class="view">
-              <input class="toggle" type="checkbox" v-model="todo.completed" />
+              <input
+                class="toggle"
+                type="checkbox"
+                v-model="todo.completed"
+              />
               <label>{{ todo.title }}</label>
-              <button class="destroy" @click="removeTodo(todo)"></button>
+              <button
+                class="destroy"
+                @click="removeTodo(todo)"
+              ></button>
             </div>
           </li>
         </ul>
       </section>
       <div class="loading-container">
-        <div class="loading" v-show="loading">Loading data ...</div>
+        <div class="loading" v-show="loading">
+          Loading data ...
+        </div>
       </div>
 
       <footer class="footer" v-show="todos.length">
         <span class="todo-count">
-          <strong v-text="remaining" data-cy="remaining-count"></strong>
+          <strong
+            v-text="remaining"
+            data-cy="remaining-count"
+          ></strong>
           {{pluralize('item', remaining)}} left
         </span>
         <ul class="filters">
@@ -113,6 +131,16 @@
         </button>
 
         <button
+          data-cy="sort-slowly"
+          class="sort-todos"
+          @click="slowlySortTodos"
+          title="Slow sort todos alphabetically"
+        >
+          🔽
+        </button>
+
+        <button
+          data-cy="sort"
           class="sort-todos"
           @click="sortTodos"
           title="Sort todos alphabetically"
