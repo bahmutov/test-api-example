@@ -320,6 +320,16 @@ body {
   border-color: #ce4646;
 }
 
+.sort-todos,
+html .sort-todos:active {
+  margin-right: 5px;
+  float: right;
+  position: relative;
+  line-height: 19px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .clear-completed,
 html .clear-completed:active {
   margin-right: 5px;

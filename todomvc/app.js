@@ -168,6 +168,13 @@ function appStart() {
         }
         commit('SET_TODOS', remainingTodos)
       },
+      async sortTodos({ commit, state }) {
+        const sortedTodos = state.todos.sort((a, b) =>
+          a.title.localeCompare(b.title),
+        )
+        await axios.post('/reset', { todos: sortedTodos })
+        commit('SET_TODOS', sortedTodos)
+      },
       clearNewTodo({ commit }) {
         commit('CLEAR_NEW_TODO')
       },
@@ -295,6 +302,10 @@ function appStart() {
 
       copyTodos() {
         this.$store.dispatch('copyTodos')
+      },
+
+      sortTodos() {
+        this.$store.dispatch('sortTodos')
       },
     },
   })
