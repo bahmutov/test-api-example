@@ -7,6 +7,31 @@ const appStartDelay = parseFloat(
   params.get('appStartDelay') || '0',
 )
 
+function copyToClipboard(text) {
+  const textarea = document.createElement('textarea')
+  const styles = textarea.style
+
+  // Hide the element for display and accessibility. Set a fixed position so the page layout
+  // isn't affected. We use `fixed` with `top: 0`, because focus is moved into the textarea
+  // for a split second and if it's off-screen, some browsers will attempt to scroll it into view.
+  styles.position = 'fixed'
+  styles.top = styles.opacity = '0'
+  styles.left = '-999em'
+  textarea.setAttribute('aria-hidden', 'true')
+  textarea.value = text
+  // Making the textarea `readonly` prevents the screen from jumping on iOS Safari (see #25169).
+  textarea.readOnly = true
+  document.body.appendChild(textarea)
+  textarea.select()
+  textarea.setSelectionRange(0, textarea.value.length)
+  successful = document.execCommand('copy', false, text)
+  console.log(
+    'copy to clipboard was successful?',
+    successful,
+  )
+  textarea.remove()
+}
+
 function appStart() {
   Vue.use(Vuex)
 
@@ -166,7 +191,8 @@ function appStart() {
               return `- [${mark}] ${todo.title}`
             })
             .join('\n') + '\n'
-        await navigator.clipboard.writeText(markdown)
+        // await navigator.clipboard.writeText(markdown)
+        copyToClipboard(markdown)
       },
       async removeCompleted({ commit, state }) {
         const remainingTodos = state.todos.filter(

@@ -1,12 +1,17 @@
 {
   "todos": [
     {
-      "id": "2",
-      "title": "apple"
+      "id": "101",
+      "title": "write code",
+      "completed": true
     },
     {
-      "id": "1",
-      "title": "ball"
+      "id": "102",
+      "title": "write tests"
+    },
+    {
+      "id": "103",
+      "title": "run tests on CI"
     }
   ]
 }
