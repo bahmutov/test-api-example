@@ -1,12 +1,9 @@
 {
   "todos": [
     {
-      "id": "2",
-      "title": "apple"
-    },
-    {
-      "id": "1",
-      "title": "ball"
+      "title": "test todo",
+      "id": 1,
+      "completed": true
     }
   ]
 }
