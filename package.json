@@ -24,6 +24,7 @@
     "cy-spok": "^1.5.2",
     "cypress": "11.2.0",
     "cypress-data-session": "^2.2.1",
+    "cypress-if": "^1.10.2",
     "find-cypress-specs": "1.19.3",
     "prettier": "2.7.1",
     "start-server-and-test": "1.14.0",
