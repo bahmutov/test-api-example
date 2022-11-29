@@ -4,13 +4,17 @@ const jsonReset = require('json-server-reset')
 
 const server = jsonServer.create()
 const router = jsonServer.router('data.json')
-const middlewares = jsonServer.defaults({
+const defaults = jsonServer.defaults({
   static: '.',
+  bodyParser: true,
+  readOnly: false,
 })
 
+server.use(defaults)
 server.use(jsonReset)
-server.use(middlewares)
+server.db = router.db
 server.use(router)
+
 server.listen(3000, () => {
   console.log('JSON Server is running on port 3000')
 })
