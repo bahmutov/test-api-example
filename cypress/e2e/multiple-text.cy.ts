@@ -3,7 +3,8 @@ import spok from 'cy-spok'
 
 it('confirms several elements at once', () => {
   cy.visit('/')
-  cy.get('[data-cy=app-title],.filters a')
+  // confirm the title and the filters text
+  cy.get('h1, .filters a')
     .map('innerText')
     .should(
       spok([
