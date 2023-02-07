@@ -21,9 +21,10 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "chai-each": "^0.0.1",
     "cy-spok": "^1.5.2",
     "cypress": "12.5.1",
-    "cypress-map": "^1.12.0",
+    "cypress-map": "^1.12.2",
     "find-cypress-specs": "1.19.3",
     "prettier": "2.7.1",
     "start-server-and-test": "1.14.0",
