@@ -23,6 +23,7 @@
   "devDependencies": {
     "cy-spok": "^1.5.2",
     "cypress": "12.5.1",
+    "cypress-recurse": "^1.27.0",
     "find-cypress-specs": "1.19.3",
     "prettier": "2.7.1",
     "start-server-and-test": "1.14.0",
