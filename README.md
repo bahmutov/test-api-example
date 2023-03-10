@@ -2,7 +2,7 @@
 
 > Practice exercises for testing API calls using Cypress
 
-🎓 Study the course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins)
+🎓 Study the course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins) and [Cypress Network Testing Exercises](https://cypress.tips/courses/network-testing)
 
 ## Small print
 
