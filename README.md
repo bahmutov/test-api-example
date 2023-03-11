@@ -1,4 +1,4 @@
-# test-api-example ![cypress version](https://img.shields.io/badge/cypress-12.5.1-brightgreen)
+# test-api-example ![cypress version](https://img.shields.io/badge/cypress-12.7.0-brightgreen)
 
 > Practice exercises for testing API calls using Cypress
 
