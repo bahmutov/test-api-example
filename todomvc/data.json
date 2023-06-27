@@ -1,24 +1,17 @@
 {
   "todos": [
     {
-      "title": "three",
-      "completed": false,
-      "id": "4611957260"
+      "id": "101",
+      "title": "write code",
+      "completed": true
     },
     {
-      "title": "another one",
-      "completed": false,
-      "id": "1712827995"
+      "id": "102",
+      "title": "write tests"
     },
     {
-      "title": "one",
-      "completed": false,
-      "id": "8805472291"
-    },
-    {
-      "title": "one",
-      "completed": false,
-      "id": "8214390722"
+      "id": "103",
+      "title": "run tests on CI"
     }
   ]
 }

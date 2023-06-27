@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["cypress"],
+    "types": ["cypress", "cypress-aliases"],
     "lib": ["DOM", "ES2015"],
     "module": "es6",
     "target": "es6",
